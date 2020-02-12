@@ -6,10 +6,20 @@
     "bugs": "http://issues.gpii.net/browse/GPII",
     "homepage": "http://gpii.net/",
     "scripts": {
-        "test": "exit 0"
+        "pretest": "exit 0",
+        "service": "exit 0",
+        "start": "exit 0",
+        "test": "exit 0",
+        "test:refreshenv": "exit 0",
+        "test:acceptance": "exit 0",
+        "test:unit": "exit 0",
+        "posttest": "exit 0",
+        "install": "exit 0"
     },
     "dependencies": {
-        "gpii-universal": "https://github.com/christopher-rtf/universal/tarball/xplat/d682036"
+        "ffi-napi": "2.4.6",
+        "gpii-universal": "christopher-rtf/universal#d682036",
+        "ref-napi": "1.4.3"
     },
     "os": [
         "win32"
