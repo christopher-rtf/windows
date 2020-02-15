@@ -6,7 +6,7 @@ param([String]$arch)
 $VerbosePreference = "continue"
 
 if (!$arch) {
-    throw "Argument '-arch' (architecture) must be passed to this script.  Valid options are: [x86, x64, arm64]"
+    throw "Argument '-arch' (architecture) must be passed to this script.  Valid options are: [x86, AMD64, arm64]"
 }
 
 switch ($arch) {
@@ -14,7 +14,7 @@ switch ($arch) {
     echo "Building Windows executables for Intel 32 (i.e. IA32/x86) architecture"
     $targetArchitecture = "x86"
   }
-  "x64" {
+  "AMD64" {
     echo "Building Windows executables for Intel 64 (i.e. AMD64/x64/x86_64) architecture"
     $targetArchitecture = "x64"
   }
@@ -23,7 +23,7 @@ switch ($arch) {
     $targetArchitecture = "ARM64"
   }
   default {
-    throw "Invalid architecture '$($arch)'.  Valid options are: [x86, x64, arm64]"
+    throw "Invalid architecture '$($arch)'.  Valid options are: [x86, AMD64, arm64]"
   }
 }
 

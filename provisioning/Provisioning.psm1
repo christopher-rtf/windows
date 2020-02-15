@@ -51,6 +51,8 @@ Function Get-MSBuild {
     [string] $visualStudioVersion
   )
 
+  # NOTE: this function is compatible with Visual Studio 2017+
+
   # Valid Visual Studio versions options are [15.0, "[15.0,16.0)", etc.]
 
   # Find the path vswhere (which installed with Visual Studio 2017 or Build Tools 2017 or later)
@@ -64,6 +66,7 @@ Function Get-MSBuild {
     throw "Visual Studio $($visualStudioVersion) or Build Tools $($visualStudioVersion) were not found."
   }
 
+  # courtesy of Microsoft: https://github.com/microsoft/vswhere/wiki/Find-MSBuild/62adac8eb22431fa91d94e03503d76d48a74939c
   $path = &$vswhere -version $visualStudioVersion -products * -requires Microsoft.Component.MSBuild -property installationPath
   if ($path) {
     $msbuild = Join-Path $path 'MSBuild\Current\Bin\MSBuild.exe'
