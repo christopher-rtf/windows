@@ -14,7 +14,7 @@
         "test:acceptance": "exit 0",
         "test:unit": "exit 0",
         "posttest": "exit 0",
-        "install": "exit 0"
+        "install": "powershell -ExecutionPolicy Bypass provisioning/NpmInstall.ps1 -arch %PROCESSOR_ARCHITECTURE%"
     },
     "dependencies": {
         "ffi-napi": "2.4.6",
