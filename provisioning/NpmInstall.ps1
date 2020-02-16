@@ -1,12 +1,37 @@
-param([String]$arch)
+param(
+  [Parameter(Mandatory = $true)]
+  [String]$arch,
+  
+  [Parameter(Mandatory = $false)]
+  [String]$arch64
+)
 <#
   This script is executed by `npm install`, and builds things required by gpii-windows.
 #>
 # Turn verbose on, change to "SilentlyContinue" for default behaviour.
 $VerbosePreference = "continue"
 
+# If a valid 64-bit architecture ($arch64) was passed in, override our $arch argument; we do this
+# because Node will provide an "emulated" mode as "-arch" on processors like ARM64
+if ($arch64) {
+  switch ($arch64) {
+    "AMD64" {
+      $arch = $arch64
+    }
+    "ARM64" {
+      $arch = $arch64
+    }
+    "%PROCESSOR_ARCHITEW6432%" {
+      # Node.js just passed the environment variable name to us; ignore this (as this happens on 32-bit Windows)
+    }
+    "default" {
+      throw "Invalid 64-bit architecture '$($arch64)'.  Valid otpions are: [AMD64, ARM64]"
+    }
+  }
+}
+
 if (!$arch) {
-    throw "Argument '-arch' (architecture) must be passed to this script.  Valid options are: [x86, AMD64, arm64]"
+    throw "Argument '-arch' (architecture) must be passed to this script.  Valid options are: [x86, AMD64, ARM64]"
 }
 
 switch ($arch) {
@@ -18,12 +43,12 @@ switch ($arch) {
     echo "Building Windows executables for Intel 64 (i.e. AMD64/x64/x86_64) architecture"
     $targetArchitecture = "x64"
   }
-  "arm64" {
+  "ARM64" {
     echo "Building Windows executables for ARM64 architecture"
     $targetArchitecture = "ARM64"
   }
   default {
-    throw "Invalid architecture '$($arch)'.  Valid options are: [x86, AMD64, arm64]"
+    throw "Invalid architecture '$($arch)'.  Valid options are: [x86, AMD64, ARM64]"
   }
 }
 
