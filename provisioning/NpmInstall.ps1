@@ -58,7 +58,7 @@ switch ($targetArchitecture) {
   }
   "ARM64" {
     # NOTE: the VolumeControl project uses the Windows 8.1 SDK, so it's not possible to compile for ARM64.  Therefore we compile for x86 instead (and use x86 on ARM64 emulation)
-    Invoke-Command $msbuild "VolumeControl.sln /p:Configuration=Release /p:Platform=`"$($targetArchitecture)`" /p:FrameworkPathOverride=`"$($programFilesX86Path)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1`"" $volumeControlDir
+    Invoke-Command $msbuild "VolumeControl.sln /p:Configuration=Release /p:Platform=`"x86`" /p:FrameworkPathOverride=`"$($programFilesX86Path)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.1`"" $volumeControlDir
   }
 }
 
