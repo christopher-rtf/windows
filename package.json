@@ -18,7 +18,7 @@
     },
     "dependencies": {
         "ffi-napi": "2.4.6",
-        "gpii-universal": "github:christopher-rtf/universal#fd0e25e",
+        "gpii-universal": "github:christopher-rtf/universal#1c8111c",
         "ref-napi": "1.4.3"
     },
     "os": [
