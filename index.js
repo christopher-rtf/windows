@@ -18,6 +18,7 @@ https://github.com/gpii/universal/LICENSE.txt
 var fluid = require("gpii-universal");
 
 require("./gpii/node_modules/WindowsUtilities/WindowsUtilities.js");
+require("./gpii/node_modules/registrySettingsHandler");
 require("./gpii/node_modules/nativeSettingsHandler");
 
 module.exports = fluid;
