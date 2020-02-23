@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "edge-js": "13.0.1",
+        "electron-edge-js": "12.8.1",
         "ffi-napi": "2.4.6",
         "gpii-universal": "github:christopher-rtf/universal#988b5cb",
         "ref-napi": "1.4.3"
