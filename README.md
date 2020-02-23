@@ -7,7 +7,7 @@ for installation instructions.
 
 ## Building
 
-This package depends on node 8.x (LTS).
+This package depends on node 12.x (LTS).
 
 To build the GPII for Windows, perform the following:
 
