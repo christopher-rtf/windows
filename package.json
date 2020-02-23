@@ -39,6 +39,6 @@
     "repository": "git://github.com/GPII/windows.git",
     "main": "./gpii.js",
     "engines": {
-        "node": ">=12.16.0"
+        "node": ">=12.4.0"
     }
 }
