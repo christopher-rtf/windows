@@ -19,6 +19,7 @@ var fluid = require("gpii-universal");
 
 require("./gpii/node_modules/WindowsUtilities/WindowsUtilities.js");
 require("./gpii/node_modules/processHandling/processHandling.js");
+require("./gpii/node_modules/displaySettingsHandler");
 require("./gpii/node_modules/registrySettingsHandler");
 require("./gpii/node_modules/windowMessages");
 require("./gpii/node_modules/nativeSettingsHandler");
